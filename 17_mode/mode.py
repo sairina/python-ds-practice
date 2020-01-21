@@ -11,3 +11,20 @@ def mode(nums):
         >>> mode([2, 2, 3, 3, 2])
         2
     """
+    new_dict = {}
+
+    for num in nums: 
+        if num in new_dict:
+            new_dict[num] += 1
+        else:
+            new_dict[num] = 1
+
+    start = 1
+    mode = 0
+
+    for key in new_dict:
+        if new_dict[key] > start:
+            start = new_dict[key]
+            mode = key
+
+    return mode
